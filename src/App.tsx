@@ -142,7 +142,7 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="app-header__title">Lotto Box</h1>
-        <p className="app-header__sub">과거 데이터 기반 번호 추천 · 비공식 개인용 도구</p>
+        <p className="app-header__sub">미소야 이번호가 1등 당첨이야! 사랑해!</p>
       </header>
 
       <TabBar active={tab} onChange={setTab} />
