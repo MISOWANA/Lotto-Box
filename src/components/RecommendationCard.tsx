@@ -17,7 +17,7 @@ export default function RecommendationCard({ set, index }: Props) {
 
       <div className="rec-card__balls">
         {set.numbers.map((n) => (
-          <NumberBall key={n} number={n} size="md" />
+          <NumberBall key={n} number={n} size="lg" />
         ))}
       </div>
 

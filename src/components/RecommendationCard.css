@@ -31,8 +31,9 @@
 
 .rec-card__balls {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .rec-card__meta {
