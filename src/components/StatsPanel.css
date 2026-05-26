@@ -1,0 +1,176 @@
+.stats-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stats-panel__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.stats-panel__sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stats-panel__sub-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Number frequency grid */
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.stats-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats-cell__ball {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.stats-cell__ball--yellow { background: #f7971e; }
+.stats-cell__ball--blue   { background: #2980b9; }
+.stats-cell__ball--red    { background: #c0392b; }
+.stats-cell__ball--gray   { background: #7f8c8d; }
+.stats-cell__ball--green  { background: #27ae60; }
+
+.stats-cell__bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stats-cell__bar {
+  height: 6px;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  min-width: 2px;
+}
+
+.stats-cell__bar--all { background: var(--primary); opacity: 0.7; }
+.stats-cell__bar--r30 { background: var(--accent); opacity: 0.8; }
+
+.stats-cell__count {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  min-width: 24px;
+  text-align: right;
+}
+
+.stats-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.stats-legend__item {
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stats-legend__item::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.stats-legend__item--all::before { background: var(--primary); }
+.stats-legend__item--r30::before { background: var(--accent); }
+
+/* Section distribution */
+.section-dist {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-dist__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-dist__label {
+  font-size: 0.78rem;
+  min-width: 48px;
+  color: var(--text-muted);
+}
+
+.section-dist__bar-wrap {
+  flex: 1;
+  height: 10px;
+  background: var(--bg);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.section-dist__bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 5px;
+  transition: width 0.4s;
+}
+
+.section-dist__pct {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Odd/even distribution */
+.oddeven-dist {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oddeven-dist__item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.oddeven-dist__label {
+  color: var(--text);
+}
+
+.oddeven-dist__pct {
+  font-weight: 700;
+  color: var(--primary);
+}

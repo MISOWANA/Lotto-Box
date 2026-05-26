@@ -1,0 +1,33 @@
+.ball {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* sizes */
+.ball--sm { width: 30px; height: 30px; font-size: 0.75rem; }
+.ball--md { width: 38px; height: 38px; font-size: 0.875rem; }
+.ball--lg { width: 46px; height: 46px; font-size: 1rem; }
+
+/* colors */
+.ball--yellow { background: #f7971e; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
+.ball--blue   { background: #2980b9; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
+.ball--red    { background: #c0392b; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
+.ball--gray   { background: #7f8c8d; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
+.ball--green  { background: #27ae60; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
+
+/* bonus outline */
+.ball--bonus {
+  outline: 2px dashed currentColor;
+  outline-offset: 2px;
+}
+
+.ball--highlight {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.5);
+}

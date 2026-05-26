@@ -1,0 +1,79 @@
+.rec-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 4px solid var(--primary);
+}
+
+.rec-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rec-card__index {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+.rec-card__score {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.rec-card__balls {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.rec-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rec-card__tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #f0f0f0;
+  color: var(--text-muted);
+}
+
+.rec-card__tag--green {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.rec-card__reasons {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+
+.rec-card__reasons li {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding-left: 10px;
+  position: relative;
+}
+
+.rec-card__reasons li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--accent);
+}
