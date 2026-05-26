@@ -74,7 +74,11 @@ export async function fetchDraw(drwNo: number): Promise<DrawResult | null> {
 }
 
 export async function loadHistory(): Promise<DrawResult[]> {
-  const res = await fetch('/data/lotto-history.json');
+  const res = await fetch('/data/lotto-history.json', {
+    signal: AbortSignal.timeout(15000),
+  });
   if (!res.ok) throw new Error('히스토리 데이터 로드 실패');
-  return res.json();
+  const raw: unknown = await res.json();
+  if (!Array.isArray(raw)) throw new Error('데이터 형식 오류');
+  return raw as DrawResult[];
 }

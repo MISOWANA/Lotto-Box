@@ -32,8 +32,8 @@ export default function RecommendationCard({ set, index }: Props) {
 
       {set.reasons.length > 0 && (
         <ul className="rec-card__reasons">
-          {set.reasons.map((r, i) => (
-            <li key={i}>{r}</li>
+          {set.reasons.map((r) => (
+            <li key={r}>{r}</li>
           ))}
         </ul>
       )}

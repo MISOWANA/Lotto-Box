@@ -23,14 +23,18 @@ export function generateRecommendations(
   stats: LottoStats,
   options: RecommendationOption,
 ): RecommendedSet[] {
+  // setCount 서버 측 재검증 — UI 우회 방어
+  const safeSetCount = Math.min(10, Math.max(1, Math.floor(options.setCount)));
+  const safeOptions = { ...options, setCount: safeSetCount };
+
   const winnerSet = buildPastWinnerSet(draws);
-  const CANDIDATES = Math.min(80000, 50000 + options.setCount * 1000);
+  const CANDIDATES = Math.min(80000, 50000 + safeOptions.setCount * 1000);
 
   const scored: (RecommendedSet & { _sort: number })[] = [];
 
   for (let i = 0; i < CANDIDATES; i++) {
     const numbers = randomCombination();
-    if (!applyFilters(numbers, winnerSet, options)) continue;
+    if (!applyFilters(numbers, winnerSet, safeOptions)) continue;
     const { score, reasons, stats: rStats } = scoreNumbers(numbers, stats);
     scored.push({ numbers, score, reasons, stats: rStats, _sort: score });
   }
@@ -41,7 +45,7 @@ export function generateRecommendations(
   // 다양성 필터: 상위 후보에서 겹치지 않는 것 선택
   const selected: RecommendedSet[] = [];
   for (const candidate of scored) {
-    if (selected.length >= options.setCount) break;
+    if (selected.length >= safeOptions.setCount) break;
     const tooClose = selected.some((s) => tooSimilar(s.numbers, candidate.numbers));
     if (!tooClose) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -53,7 +57,7 @@ export function generateRecommendations(
   // 부족하면 다양성 조건 완화해서 채우기
   if (selected.length < options.setCount) {
     for (const candidate of scored) {
-      if (selected.length >= options.setCount) break;
+      if (selected.length >= safeOptions.setCount) break;
       const alreadyIn = selected.some((s) => s.numbers.join(',') === candidate.numbers.join(','));
       if (!alreadyIn) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars

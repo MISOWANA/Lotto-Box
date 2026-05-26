@@ -10,6 +10,7 @@ import FilterPanel from './components/FilterPanel';
 import RecommendationCard from './components/RecommendationCard';
 import StatsPanel from './components/StatsPanel';
 import HistoryPanel from './components/HistoryPanel';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import './App.css';
 
@@ -183,7 +184,7 @@ export default function App() {
                   이 결과는 내부 점수 모델 기반 참고용이며, 당첨을 보장하지 않습니다.
                 </p>
                 {recommendations.map((set, i) => (
-                  <RecommendationCard key={i} set={set} index={i} />
+                  <RecommendationCard key={set.numbers.join('-')} set={set} index={i} />
                 ))}
               </section>
             )}
@@ -191,17 +192,23 @@ export default function App() {
         )}
 
         {tab === 'stats' && (
-          stats ? (
-            <StatsPanel stats={stats} />
-          ) : (
-            <div className="loading-box">
-              <span className="spinner" />
-              <p>통계 계산 중…</p>
-            </div>
-          )
+          <ErrorBoundary>
+            {stats ? (
+              <StatsPanel stats={stats} />
+            ) : (
+              <div className="loading-box">
+                <span className="spinner" />
+                <p>통계 계산 중…</p>
+              </div>
+            )}
+          </ErrorBoundary>
         )}
 
-        {tab === 'history' && <HistoryPanel draws={draws} />}
+        {tab === 'history' && (
+          <ErrorBoundary>
+            <HistoryPanel draws={draws} />
+          </ErrorBoundary>
+        )}
       </main>
 
       <footer className="app-footer">

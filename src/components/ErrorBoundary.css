@@ -1,0 +1,23 @@
+.error-boundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.error-boundary__msg {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.error-boundary__btn {
+  padding: 8px 20px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}

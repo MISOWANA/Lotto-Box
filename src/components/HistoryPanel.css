@@ -54,6 +54,16 @@
   cursor: not-allowed;
 }
 
+.history-input--error {
+  border-color: var(--primary);
+}
+
+.history-panel__error {
+  color: var(--primary);
+  font-size: 0.8rem;
+  margin-top: -4px;
+}
+
 .history-panel__notfound {
   color: var(--text-muted);
   font-size: 0.875rem;
