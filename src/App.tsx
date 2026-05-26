@@ -140,7 +140,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1 className="app-header__title">로또 픽커</h1>
+        <h1 className="app-header__title">Lotto Box</h1>
         <p className="app-header__sub">과거 데이터 기반 번호 추천 · 비공식 개인용 도구</p>
       </header>
 
